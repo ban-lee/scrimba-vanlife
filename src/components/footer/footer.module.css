@@ -1,0 +1,19 @@
+@import url('/global.css');
+
+.footer {
+  background: #252525;
+  height: var(--footer-height);
+
+  display: flex;
+  place-content: center;
+  place-items: center;
+}
+
+.footer p {
+  color: #AAAAAA;
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 23px;
+  text-transform: uppercase;
+}

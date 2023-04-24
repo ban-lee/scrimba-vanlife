@@ -1,0 +1,36 @@
+@import url('/global.css');
+
+.nav {
+  background: #FFF7ED;
+  height: var(--header-height);
+
+  display: flex;
+  align-items: center;
+  padding-inline: 16px;
+}
+
+.title {
+  color: #000000;
+  font-family: 'Inter';
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 40px;
+  text-transform: uppercase;
+
+  margin-right: auto;
+}
+
+.link {
+  color: #4D4D4D;
+  font-family: 'Inter';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 23px;
+}
+
+.link:hover {
+  color: #161616;
+  text-decoration-line: underline;
+}
