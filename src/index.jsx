@@ -8,6 +8,7 @@ import { Vans } from './pages/vans';
 import { Navigation } from './components/navigation';
 
 import "./server";
+import { VanDetail } from './pages/van-detail/van-detail';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/vans" element={<Vans />} />
+        <Route path="/vans/:id" element={<VanDetail />} />
       </Routes>
       <Footer />
     </BrowserRouter>

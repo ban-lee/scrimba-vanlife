@@ -1,0 +1,85 @@
+@import url('/global.css');
+
+.main {
+  background: #FFF7ED;
+  min-height: var(--content-height);
+
+  display: flex;
+  flex-direction: column;
+  color: #161616;
+  font-family: 'Inter';
+
+  padding-inline: 24px;
+}
+
+.back {
+  display: flex;
+  place-content: flex-start;
+  place-items: center;
+
+  color: #201F1D;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
+  text-decoration: underline;
+}
+
+.backIcon {
+  width: 16px;
+  height: 16px;
+
+  margin-right: 8px;
+}
+
+.photo {
+  margin-top: 40px;
+  border-radius: 5px;
+}
+
+.chips {
+  margin-top: 50px;
+  display: flex;
+}
+
+.name {
+  margin-top: 24px;
+}
+
+.cost {
+  margin-top: 12px;
+
+  display: flex;
+  place-items: baseline;
+  gap: 4px;
+}
+
+.cost p:nth-child(1) {
+  font-weight: 700;
+  font-size: 24px;
+  text-align: right;
+}
+
+.cost p:nth-child(2) {
+  font-size: 18px;
+  text-align: right;
+}
+
+.description {
+  margin-top: 16px;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.rent {
+  margin-top: 24px;
+}
+
+.rentButton {
+  background: #FF8C38;
+  width: 100%;
+  height: 50px;
+
+  color: #FFFFFF;
+}
