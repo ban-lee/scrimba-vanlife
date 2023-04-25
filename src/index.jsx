@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Footer } from './components/footer';
 import { Home } from './pages/home';
 import { Vans } from './pages/vans';
-import { Navigation } from './components/navigation';
+import { Header } from './components/header';
 
 import "./server";
 import { VanDetail } from './pages/van-detail/van-detail';
@@ -13,9 +13,7 @@ import { VanDetail } from './pages/van-detail/van-detail';
 function App() {
   return (
     <BrowserRouter>
-      <header>
-        <Navigation />
-      </header>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
