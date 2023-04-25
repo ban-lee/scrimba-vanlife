@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { About } from './components/about';
+import { About } from './pages/about';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Footer } from './components/footer';
-import { Home } from './components/home';
+import { Home } from './pages/home';
 import { Navigation } from './components/navigation';
 
 function App() {
