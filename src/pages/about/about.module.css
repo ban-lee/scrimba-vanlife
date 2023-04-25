@@ -1,17 +1,6 @@
 @import url('/global.css');
-
-.main {
-  background: #FFF7ED;
-  min-height: var(--content-height);
-
-  display: flex;
-  flex-direction: column;
-  color: #161616;
-  font-family: 'Inter';
-}
-
 .content {
-  margin-inline: 24px;
+  margin-inline: var(--content-padding);
 }
 
 .content h1 {

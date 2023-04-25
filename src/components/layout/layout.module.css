@@ -1,0 +1,11 @@
+@import url('/global.css');
+
+.main {
+  background: #FFF7ED;
+  min-height: var(--content-height);
+
+  display: flex;
+  flex-direction: column;
+  color: #161616;
+  font-family: 'Inter';
+}

@@ -1,15 +1,7 @@
 @import url('/global.css');
 
-.main {
-  background: #FFF7ED;
-  min-height: var(--content-height);
-
-  display: flex;
-  flex-direction: column;
-  color: #161616;
-  font-family: 'Inter';
-
-  padding-inline: 24px;
+.content {
+  padding-inline: var(--content-padding);
 }
 
 .back {
@@ -33,6 +25,13 @@
 
 .photo {
   margin-top: 40px;
+  width: 502px;
+  height: 502px;
+
+  display: flex;
+}
+
+.photo img {
   border-radius: 5px;
 }
 

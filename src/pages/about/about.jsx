@@ -4,7 +4,7 @@ import stargazing from '/src/assets/stargazing.png';
 
 export function About() {
   return (
-    <main className={styles.main}>
+    <>
       <img src={stargazing} />
       <div className={styles.content}>
         <h1>Don’t squeeze in a sedan when you could relax in a van.</h1>
@@ -28,6 +28,6 @@ export function About() {
           </Link>
         </div>
       </div>
-    </main>
+    </>
   );
 }

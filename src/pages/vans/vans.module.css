@@ -1,14 +1,8 @@
 @import url('/global.css');
 
-.main {
-  background: #FFF7ED;
-  min-height: var(--content-height);
-
-  display: flex;
-  flex-direction: column;
-  color: #161616;
-  font-family: 'Inter';
-  padding: 0 24px 64px;
+.content {
+  padding-block: 0 64px;
+  padding-inline: var(--content-padding);
 }
 
 .title {
