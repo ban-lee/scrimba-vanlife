@@ -7,6 +7,8 @@ import { Home } from './pages/home';
 import { Vans } from './pages/vans';
 import { Navigation } from './components/navigation';
 
+import "./server";
+
 function App() {
   return (
     <BrowserRouter>
