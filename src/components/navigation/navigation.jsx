@@ -6,6 +6,7 @@ export function Navigation() {
     <nav className={styles.nav}>
       <Link to="/" className={styles.title}>#VanLife</Link>
       <Link to="/about" className={styles.link}>About</Link>
+      <Link to="/vans" className={styles.link}>Vans</Link>
     </nav>
   );
 }

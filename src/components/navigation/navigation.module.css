@@ -6,7 +6,7 @@
 
   display: flex;
   align-items: center;
-  padding-inline: 16px;
+  padding-inline: 24px;
 }
 
 .title {
@@ -28,9 +28,15 @@
   font-style: normal;
   font-weight: 600;
   line-height: 23px;
+
+  margin-right: 14px;
 }
 
 .link:hover {
   color: #161616;
   text-decoration-line: underline;
+}
+
+.link:last-of-type {
+  margin-right: 0;
 }
