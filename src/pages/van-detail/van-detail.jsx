@@ -12,7 +12,6 @@ export function VanDetail() {
     fetch(`/api/vans/${params.id}`)
     .then((res) => res.json())
     .then((json) => {
-      console.log(json.vans);
       setVan(json.vans);
     });
   }, [params.id]);

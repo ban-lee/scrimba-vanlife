@@ -9,7 +9,6 @@ export function Vans() {
     fetch('/api/vans')
       .then((res) => res.json())
       .then((json) => {
-        console.log(json.vans);
         setVans(json.vans);
       });
   }, []);
