@@ -16,3 +16,12 @@
   font-size: 36px;
   line-height: 42px;
 }
+
+.vans {
+  margin-top: 60px;
+
+  display: flex;
+  flex-flow: row wrap;
+  place-content: space-around;
+  row-gap: 24px;
+}

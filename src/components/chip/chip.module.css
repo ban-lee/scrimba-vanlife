@@ -1,0 +1,29 @@
+.chip {
+  background: #FFEAD0;
+  border-radius: 5px;
+  color: #4D4D4D;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  padding: 6px 12px;
+}
+
+.chip.selected,
+.chip:hover {
+  color: #FFEAD0;
+}
+
+.chip.simple.selected,
+.chip.simple:hover {
+  background: #E17654;
+}
+
+.chip.luxury.selected,
+.chip.luxury:hover {
+  background: #161616;
+}
+
+.chip.rugged.selected,
+.chip.rugged:hover {
+  background: #115E59;
+}
