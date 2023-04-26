@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home } from './pages/home';
 import { HostDashboard } from './pages/host/host-dashboard';
 import { HostIncome } from './pages/host/host-income';
+import { HostLayout } from './components/layout-host';
 import { HostReviews } from './pages/host/host-reviews';
 import { Layout } from './components/layout';
 import { Vans } from './pages/vans';
@@ -16,16 +17,18 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
 
-          <Route path="/vans" element={<Vans />} />
-          <Route path="/vans/:id" element={<VanDetail />} />
+          <Route path="vans" element={<Vans />} />
+          <Route path="vans/:id" element={<VanDetail />} />
 
-          <Route path="/host" element={<HostDashboard />} />
-          <Route path="/host/income" element={<HostIncome />} />
-          <Route path="/host/reviews" element={<HostReviews />} />
+          <Route path="host" element={<HostLayout />}>
+            <Route index element={<HostDashboard />} />
+            <Route path="income" element={<HostIncome />} />
+            <Route path="reviews" element={<HostReviews />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

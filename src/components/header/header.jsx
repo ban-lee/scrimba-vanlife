@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styles from './header.module.css';
 
 export function Header() {
@@ -6,9 +6,27 @@ export function Header() {
     <header>
       <nav className={styles.nav}>
         <Link to="/" className={styles.title}>#VanLife</Link>
-        <Link to="/host" className={styles.link}>Host</Link>
-        <Link to="/about" className={styles.link}>About</Link>
-        <Link to="/vans" className={styles.link}>Vans</Link>
+
+        <div className={styles.links}>
+          <NavLink
+            to="/host"
+            className={({isActive}) => isActive ? styles.selected : ''}
+          >
+            Host
+          </NavLink>
+          <NavLink
+            to="/about"
+            className={({isActive}) => isActive ? styles.selected : ''}
+          >
+            About
+          </NavLink>
+          <NavLink
+            to="/vans"
+            className={({isActive}) => isActive ? styles.selected : ''}
+          >
+            Vans
+          </NavLink>
+        </div>
       </nav>
     </header>
   );

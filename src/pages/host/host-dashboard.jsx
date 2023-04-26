@@ -1,3 +1,9 @@
+import styles from './host.module.css';
+
 export function HostDashboard() {
-  return <h1>Dashboard</h1>;
+  return (
+    <div className={styles.welcome}>
+      <h1>Welcome!</h1>
+    </div>
+  );
 }

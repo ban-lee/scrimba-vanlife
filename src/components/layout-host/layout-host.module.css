@@ -1,0 +1,19 @@
+@import url('/global.css');
+
+.nav {
+  margin-inline: var(--content-padding);
+  display: flex;
+  gap: 24px;
+}
+
+.nav a {
+  color: #4D4D4D;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 23px;
+}
+
+.nav a:hover {
+  color: #161616;
+  text-decoration: underline;
+}

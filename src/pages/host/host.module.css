@@ -1,0 +1,15 @@
+@import url('/global.css');
+
+.welcome {
+  background: #FFEAD0;
+
+  margin-top: 36px;
+  padding-block: 36px;
+  padding-inline: var(--content-padding);
+}
+
+.welcome h1 {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 22px;
+}

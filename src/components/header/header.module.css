@@ -7,13 +7,12 @@
   display: flex;
   align-items: center;
   padding-inline: 24px;
+  font-family: 'Inter';
 }
 
 .title {
   color: #000000;
-  font-family: 'Inter';
   font-size: 26px;
-  font-style: normal;
   font-weight: 900;
   line-height: 40px;
   text-transform: uppercase;
@@ -21,22 +20,22 @@
   margin-right: auto;
 }
 
-.link {
-  color: #4D4D4D;
-  font-family: 'Inter';
+.links {
+  display: flex;
+  gap: 16px;
+
   font-size: 16px;
-  font-style: normal;
   font-weight: 600;
   line-height: 23px;
-
-  margin-right: 14px;
 }
 
-.link:hover {
+.links a {
+  color: #4D4D4D;
+  padding: 0 4px;
+}
+
+.links a:hover,
+a.selected {
   color: #161616;
   text-decoration-line: underline;
-}
-
-.link:last-of-type {
-  margin-right: 0;
 }
