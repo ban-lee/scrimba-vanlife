@@ -1,10 +1,12 @@
 # \#VanLife
 
-The course project for [Learn React Router 6](https://scrimba.com/learn/reactrouter6) on
-[scrimba](https://scrimba.com/).
+> I'm still working my way through the course, so certain parts may placeholders or be broken.
 
-**Frameworks and libraries used:**
-- Vite
-- React and React Router
+The course project for [Learn React Router 6](https://scrimba.com/learn/reactrouter6) on
+[Scrimba](https://scrimba.com/).
+
+**Built using:**
+- [React](https://react.dev/) and [React Router](https://reactrouter.com/en/main)
 - CSS Modules
-- MirageJS
+- [MirageJS](https://miragejs.com/)
+- [Vite](https://vitejs.dev/)
