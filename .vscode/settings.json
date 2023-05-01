@@ -1,0 +1,16 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.yarn": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true,
+  },
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/*.svg": true,
+    "yarn.lock": true,
+
+    "**/dist/*": true,
+  },
+}
