@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-html, body, h1, h2, h3, p {
+html, body, h1, h2, h3, h4, h5, p {
     margin: 0;
     padding: 0;
 }
@@ -39,4 +39,40 @@ body::-webkit-scrollbar {
 
 .button:hover {
   transform: translate(1px, 1px);
+}
+
+.h1 {
+  font-weight: 700;
+  font-size: 36px;
+}
+
+.h2 {
+  font-weight: 700;
+  font-size: 32px;
+
+  /* Host Vans */
+  line-height: 34px;
+}
+
+.h3 {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.h4 {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.h5 {
+  font-weight: 600;
+  font-size: 20px;
+
+  /* VanSlate */
+  line-height: 32px;
+}
+
+.text {
+  font-size: 16px;
+  font-weight: 500;
 }

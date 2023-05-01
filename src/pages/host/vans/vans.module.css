@@ -3,3 +3,15 @@
 .content {
   padding-inline: var(--content-padding);
 }
+
+.title {
+  margin-top: 36px;
+}
+
+.vans {
+  margin-top: 32px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
