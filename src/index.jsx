@@ -7,6 +7,8 @@ import { HostDashboard } from './pages/host/host-dashboard';
 import { HostIncome } from './pages/host/host-income';
 import { HostLayout } from './components/layout-host';
 import { HostReviews } from './pages/host/host-reviews';
+import { HostVans } from './pages/host/vans';
+import { HostVanDetail } from './pages/host/van-detail';
 import { Layout } from './components/layout';
 import { Vans } from './pages/vans';
 import { VanDetail } from './pages/van-detail';
@@ -27,6 +29,8 @@ function App() {
           <Route path="host" element={<HostLayout />}>
             <Route index element={<HostDashboard />} />
             <Route path="income" element={<HostIncome />} />
+            <Route path="vans" element={<HostVans />} />
+            <Route path="vans/:id" element={<HostVanDetail />} />
             <Route path="reviews" element={<HostReviews />} />
           </Route>
         </Route>
