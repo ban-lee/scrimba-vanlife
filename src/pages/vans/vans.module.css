@@ -1,5 +1,3 @@
-@import url('/global.css');
-
 .content {
   padding-block: 0 64px;
   padding-inline: var(--content-padding);

@@ -10,19 +10,19 @@ export function Header() {
         <div className={styles.links}>
           <NavLink
             to="/host"
-            className={({isActive}) => isActive ? styles.selected : ''}
+            className={({isActive}) => `link link--large ${isActive ? 'active' : ''}`}
           >
             Host
           </NavLink>
           <NavLink
             to="/about"
-            className={({isActive}) => isActive ? styles.selected : ''}
+            className={({isActive}) => `link link--large ${isActive ? 'active' : ''}`}
           >
             About
           </NavLink>
           <NavLink
             to="/vans"
-            className={({isActive}) => isActive ? styles.selected : ''}
+            className={({isActive}) => `link link--large ${isActive ? 'active' : ''}`}
           >
             Vans
           </NavLink>

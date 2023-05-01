@@ -1,5 +1,3 @@
-@import url('/global.css');
-
 .content {
   padding-inline: var(--content-padding);
 }

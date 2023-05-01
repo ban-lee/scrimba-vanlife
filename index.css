@@ -1,3 +1,5 @@
+@import url('/global.css');
+
 * {
     box-sizing: border-box;
 }
@@ -75,4 +77,21 @@ body::-webkit-scrollbar {
 .text {
   font-size: 16px;
   font-weight: 500;
+}
+
+.link {
+  color: #4D4D4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 23px;
+}
+
+.link--large {
+  font-size: 18px;
+}
+
+.link:hover,
+.link.active {
+  color: #161616;
+  text-decoration: underline;
 }

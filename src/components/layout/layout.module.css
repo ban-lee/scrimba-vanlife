@@ -1,5 +1,3 @@
-@import url('/global.css');
-
 .main {
   background: #FFF7ED;
   min-height: var(--content-height);
