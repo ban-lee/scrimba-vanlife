@@ -40,20 +40,21 @@ export function VanDetail() {
               isSelected={true}
             />
           </div>
-          <h1 className={styles.name}>{van.name}</h1>
+          <h2 className={`h2 ${styles.name}`}>{van.name}</h2>
 
           <div className={styles.cost}>
             <p>${van.price}</p>
             <p>/ day</p>
           </div>
 
-          <p className={styles.description}>{van.description}</p>
+          <p className={`text ${styles.description}`}>{van.description}</p>
 
           <div className={styles.rent}>
             <Link
               to="/vans"
-              className={`button ${styles.rentButton}`}>
-              Find your van
+              className={`button ${styles.rentButton}`}
+            >
+              Rent this van
             </Link>
           </div>
         </>

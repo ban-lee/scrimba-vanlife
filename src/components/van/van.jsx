@@ -14,7 +14,7 @@ export function Van(props) {
         className={styles.photo}
       />
       <div className={styles.basicInfo}>
-        <h3 className={styles.name}>{props.van.name}</h3>
+        <h5 className="h5">{props.van.name}</h5>
         <div className={styles.cost}>
           <p>${props.van.price}</p>
           <p>/ day</p>

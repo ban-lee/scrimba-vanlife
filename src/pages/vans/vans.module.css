@@ -3,12 +3,6 @@
   padding-inline: var(--content-padding);
 }
 
-.title {
-  font-weight: 800;
-  font-size: 36px;
-  line-height: 42px;
-}
-
 .vans {
   margin-top: 60px;
 

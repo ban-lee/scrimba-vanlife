@@ -44,43 +44,43 @@ body::-webkit-scrollbar {
 }
 
 .h1 {
-  font-weight: 700;
+  font-weight: 800;
   font-size: 36px;
+  line-height: 42px;
 }
 
 .h2 {
   font-weight: 700;
   font-size: 32px;
-
-  /* Host Vans */
-  line-height: 34px;
+  line-height: 38px;
 }
 
 .h3 {
   font-weight: 700;
   font-size: 30px;
+  line-height: 36px;
 }
 
 .h4 {
   font-weight: 700;
   font-size: 24px;
+  line-height: 30px;
 }
 
 .h5 {
   font-weight: 600;
   font-size: 20px;
-
-  /* VanSlate */
-  line-height: 32px;
+  line-height: 26px;
 }
 
 .text {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
+  line-height: 24px;
 }
 
 .link {
-  color: #4D4D4D;
+  color: var(--dark-gray);
   font-size: 16px;
   font-weight: 600;
   line-height: 23px;
@@ -92,6 +92,6 @@ body::-webkit-scrollbar {
 
 .link:hover,
 .link.active {
-  color: #161616;
+  color: var(--black);
   text-decoration: underline;
 }

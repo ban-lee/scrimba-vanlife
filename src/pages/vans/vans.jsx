@@ -15,7 +15,7 @@ export function Vans() {
 
   return (
     <div className={styles.content}>
-      <h1 className={styles.title}>Explore our van options</h1>
+      <h1 className="h1">Explore our van options</h1>
       <div className={styles.vans}>
         {vans.map((van) => <Van key={van.id} van={van} />)}
       </div>

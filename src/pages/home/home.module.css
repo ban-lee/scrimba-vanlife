@@ -1,28 +1,16 @@
 .content {
   background:
-    linear-gradient(0deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
-    url(/src/assets/mountains.png) no-repeat center center;
+  linear-gradient(0deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+  url(/src/assets/mountains.png) no-repeat center center;
   background-size: cover;
-  width: 100%;
-
   color: #FFFFFF;
-
   padding-block: 64px;
   padding-inline: var(--content-padding);
+  width: 100%;
 }
 
-.title {
-  font-weight: 800;
-  font-size: 36px;
-  line-height: 42px;
-}
-
-.text {
+.content p {
   margin-top: 24px;
-
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
 }
 
 .vans {

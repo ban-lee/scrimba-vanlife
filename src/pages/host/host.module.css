@@ -5,9 +5,3 @@
   padding-block: 36px;
   padding-inline: var(--content-padding);
 }
-
-.welcome h1 {
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 22px;
-}
