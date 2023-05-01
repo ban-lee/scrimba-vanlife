@@ -1,8 +1,8 @@
+import styles from './van-detail.module.css';
+import { BackLink } from '/src/components/back-link';
 import { Chip } from '/src/components/chip';
 import { Link, useParams } from "react-router-dom"
 import { useEffect, useState } from 'react';
-import arrowLeft from '/src/assets/arrow-left-solid.svg';
-import styles from './van-detail.module.css';
 
 export function VanDetail() {
   const params = useParams();
@@ -21,13 +21,7 @@ export function VanDetail() {
       {!van && <h1 style={{textAlign: 'center'}}>Loading...</h1>}
       {!!van && (
         <>
-          <Link
-            to="/vans"
-            className={styles.back}
-          >
-            <img src={arrowLeft} alt="Back to all vans" className={styles.backIcon} />
-            <div>Back to all vans</div>
-          </Link>
+          <BackLink to="/vans" label="Back to all vans" />
           <div className={styles.photo}>
             <img
               src={van.imageUrl}

@@ -1,3 +1,4 @@
+import { BackLink } from '/src/components/back-link';
 import { Link, useParams } from 'react-router-dom';
 import styles from './van-detail.module.css';
 
@@ -6,7 +7,7 @@ export function HostVanDetail() {
 
   return (
     <div className={styles.content}>
-      <Link to="/host/vans">Back to all vans</Link>
+      <BackLink to="/host/vans" label="Back to all vans" />
       <h1>Van {params.id} Details</h1>
     </div>
   );

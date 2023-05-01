@@ -2,25 +2,6 @@
   padding-inline: var(--content-padding);
 }
 
-.back {
-  display: flex;
-  place-content: flex-start;
-  place-items: center;
-
-  color: #201F1D;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 23px;
-  text-decoration: underline;
-}
-
-.backIcon {
-  width: 16px;
-  height: 16px;
-
-  margin-right: 8px;
-}
-
 .photo {
   margin-top: 40px;
   width: 502px;
