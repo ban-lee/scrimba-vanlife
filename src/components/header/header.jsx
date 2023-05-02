@@ -9,19 +9,19 @@ export function Header() {
 
         <div className={styles.links}>
           <NavLink
-            to="/host"
+            to="host"
             className={({isActive}) => `link link--large ${isActive ? 'active' : ''}`}
           >
             Host
           </NavLink>
           <NavLink
-            to="/about"
+            to="about"
             className={({isActive}) => `link link--large ${isActive ? 'active' : ''}`}
           >
             About
           </NavLink>
           <NavLink
-            to="/vans"
+            to="vans"
             className={({isActive}) => `link link--large ${isActive ? 'active' : ''}`}
           >
             Vans
