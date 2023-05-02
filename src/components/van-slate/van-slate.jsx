@@ -1,21 +1,21 @@
 import styles from './van-slate.module.css';
 import { Link } from 'react-router-dom';
 
-export function VanSlate(props) {
+export function VanSlate({ van }) {
   return (
     <Link
-      to={`/host/vans/${props.van.id}`}
+      to={`/host/vans/${van.id}`}
       className={styles.van}
     >
       <img
-        src={props.van.imageUrl}
-        alt={`Photo of van ${props.van.name}`}
+        src={van.imageUrl}
+        alt={`Photo of van ${van.name}`}
         className={styles.photo}
       />
       <div className={styles.info}>
-        <h5 className="h5">{props.van.name}</h5>
+        <h5 className="h5">{van.name}</h5>
         <div className={`text ${styles.cost}`}>
-          ${props.van.price}/ day
+          ${van.price}/ day
         </div>
       </div>
     </Link>
