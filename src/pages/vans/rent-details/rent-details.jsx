@@ -1,10 +1,10 @@
-import styles from './van-detail.module.css';
+import styles from './rent-details.module.css';
 import { BackLink } from '/src/components/back-link';
 import { Chip } from '/src/components/chip';
 import { Link, useParams } from "react-router-dom"
 import { useEffect, useState } from 'react';
 
-export function VanDetail() {
+export function RentDetails() {
   const params = useParams();
   const [van, setVan] = useState(null);
 

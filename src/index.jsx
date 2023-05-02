@@ -10,8 +10,8 @@ import { HostReviews } from './pages/host/host-reviews';
 import { HostVans } from './pages/host/vans';
 import { HostVanDetail } from './pages/host/van-detail';
 import { Layout } from './components/layout';
+import { RentDetails } from './pages/vans/rent-details';
 import { Vans } from './pages/vans';
-import { VanDetail } from './pages/van-detail';
 
 import "./server";
 
@@ -24,7 +24,7 @@ function App() {
           <Route path="about" element={<About />} />
 
           <Route path="vans" element={<Vans />} />
-          <Route path="vans/:id" element={<VanDetail />} />
+          <Route path="vans/:id" element={<RentDetails />} />
 
           <Route path="host" element={<HostLayout />}>
             <Route index element={<HostDashboard />} />

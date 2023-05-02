@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
-import { Chip } from '../chip';
 import styles from './van.module.css';
+import { Chip } from '/src/components/chip';
+import { Link } from 'react-router-dom';
 
 export function Van(props) {
   return (

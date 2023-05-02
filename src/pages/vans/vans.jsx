@@ -1,5 +1,5 @@
-import { Van } from '../../components/van';
 import styles from './vans.module.css';
+import { Van } from '/src/components/van';
 import { useEffect, useState } from 'react';
 
 export function Vans() {
