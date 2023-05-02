@@ -1,8 +1,8 @@
 import styles from './van-detail.module.css';
 import { BackLink } from '/src/components/back-link';
-import { Chip } from '/src/components/chip';
 import { NavLink, Outlet, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { VanSummary } from '/src/components/host/van-summary';
 
 export function HostVanDetail() {
   const params = useParams();
@@ -21,25 +21,7 @@ export function HostVanDetail() {
       <BackLink label="Back to all vans" />
       {!!van && (
         <div className={styles.card}>
-          <div className={styles.summary}>
-            <img
-              src={van.imageUrl}
-              alt={`Photo of van ${van.name}`}
-              className={styles.photo}
-            />
-            <div className={styles.stack}>
-              <Chip
-                type={van.type}
-                isSelected={true}
-                isSmall={true}
-              />
-              <h4 className={`h4 ${styles.name}`}>{van.name}</h4>
-              <div className={styles.cost}>
-                <p>${van.price}</p>
-                <p>/ day</p>
-              </div>
-            </div>
-          </div>
+          <VanSummary van={van} />
           <nav className={styles.links}>
             <NavLink
               to="."
@@ -61,9 +43,7 @@ export function HostVanDetail() {
               Photos
             </NavLink>
           </nav>
-          <div>
-            <Outlet />
-          </div>
+          <Outlet />
         </div>
       )}
     </div>

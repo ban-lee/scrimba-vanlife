@@ -1,0 +1,36 @@
+.summary {
+  display: flex;
+  gap: 16px;
+}
+
+.photo {
+  border-radius: 5px;
+  width: 160px;
+  height: 160px;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  gap: 4px;
+}
+
+.name {
+  margin-top: 10px;
+}
+
+.cost {
+  display: flex;
+  place-items: baseline;
+  gap: 2px;
+}
+
+.cost p:nth-child(1) {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.cost p:nth-child(2) {
+  font-size: 14px;
+}
