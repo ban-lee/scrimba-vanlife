@@ -1,7 +1,7 @@
-import styles from './van-slate.module.css';
+import styles from './van-slat.module.css';
 import { Link } from 'react-router-dom';
 
-export function VanSlate({ van }) {
+export function VanSlat({ van }) {
   return (
     <Link
       to={`/host/vans/${van.id}`}

@@ -1,6 +1,6 @@
 import styles from './vans.module.css';
 import { useEffect, useState } from 'react';
-import { VanSlate } from '/src/components/van-slate';
+import { VanSlat } from '/src/components/van-slat';
 
 export function HostVans() {
   const [vans, setVans] = useState([]);
@@ -18,7 +18,7 @@ export function HostVans() {
       <h2 className={`h2 ${styles.title}`}>Your listed vans</h2>
       <div className={styles.vans}>
         {vans.map((van) => {
-          return <VanSlate key={van.id} van={van} />
+          return <VanSlat key={van.id} van={van} />
         })}
       </div>
     </div>
