@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 export function BackLink(props) {
   return (
     <Link
-      to={props.to}
+      to=".."
+      relative="path"
       className={styles.back}
     >
       <img src={arrowLeft} alt={props.label} className={styles.backIcon} />

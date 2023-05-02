@@ -21,7 +21,7 @@ export function VanDetail() {
       {!van && <h1 style={{textAlign: 'center'}}>Loading...</h1>}
       {!!van && (
         <>
-          <BackLink to="/vans" label="Back to all vans" />
+          <BackLink label="Back to all vans" />
           <div className={styles.photo}>
             <img
               src={van.imageUrl}
