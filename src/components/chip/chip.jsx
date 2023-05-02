@@ -13,10 +13,17 @@ export const VAN_TYPES = {
 };
 
 export function Chip(props) {
+  function getClasses() {
+    const classes = [styles.chip, styles[props.type]];
+
+    if (props.isSelected) classes.push(styles.selected);
+    if (props.isSmall) classes.push(styles['chip--small']);
+
+    return classes.join(' ');
+  }
+
   return (
-    <div
-      className={`${styles.chip} ${styles[props.type]} ${props.isSelected ? styles.selected : ''}`}
-    >
+    <div className={getClasses()}>
       {VAN_TYPES[props.type]?.label}
     </div>
   );

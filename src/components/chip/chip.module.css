@@ -6,6 +6,12 @@
   font-weight: 500;
   line-height: 24px;
   padding: 6px 12px;
+  width: fit-content;
+}
+
+.chip--small {
+  font-size: 13px;
+  padding: 2px 8px;
 }
 
 .chip.selected,
