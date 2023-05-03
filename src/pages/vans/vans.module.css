@@ -4,10 +4,23 @@
 }
 
 .vans {
-  margin-top: 60px;
+  margin-top: 48px;
 
   display: flex;
   flex-flow: row wrap;
   place-content: space-around;
   row-gap: 24px;
+}
+
+.filters {
+  margin-top: 24px;
+
+  display: flex;
+  flex-flow: row wrap;
+  gap: 16px;
+}
+
+.clearBtn {
+  border: transparent;
+  background: transparent;
 }
