@@ -3,7 +3,7 @@ import { useOutletContext } from 'react-router-dom';
 import { VAN_TYPES } from '/src/components/chip';
 
 export function VanDescription() {
-  const van = useOutletContext();
+  const { van } = useOutletContext();
 
   return (
     <div className={`text ${styles.content}`}>

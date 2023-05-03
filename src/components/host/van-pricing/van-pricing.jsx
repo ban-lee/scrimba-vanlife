@@ -2,7 +2,7 @@ import styles from './van-pricing.module.css';
 import { useOutletContext } from 'react-router-dom';
 
 export function VanPricing() {
-  const van = useOutletContext();
+  const { van } = useOutletContext();
 
   return (
     <div className={styles.content}>
