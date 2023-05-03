@@ -1,0 +1,11 @@
+.content {
+  margin-inline: var(--content-padding);
+  margin-top: 64px;
+}
+
+.homeBtn {
+  background: #161616;
+  color: #FFFFFF;
+  margin-top: 32px;
+  padding: 12px 22px;
+}

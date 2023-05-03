@@ -10,6 +10,7 @@ import { HostReviews } from './pages/host/host-reviews';
 import { HostVans } from './pages/host/vans';
 import { HostVanDetail } from './pages/host/van-detail';
 import { Layout } from './components/layout';
+import { NotFound } from './pages/not-found';
 import { RentDetails } from './pages/vans/rent-details';
 import { VanDescription } from './components/host/van-description';
 import { VanPhoto } from './components/host/van-photo';
@@ -40,6 +41,8 @@ function App() {
             </Route>
             <Route path="reviews" element={<HostReviews />} />
           </Route>
+
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
