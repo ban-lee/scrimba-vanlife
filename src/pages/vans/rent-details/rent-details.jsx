@@ -45,7 +45,6 @@ export function RentDetails() {
 
           <div className={styles.rent}>
             <Link
-              to="/vans"
               className={`button ${styles.rentButton}`}
             >
               Rent this van

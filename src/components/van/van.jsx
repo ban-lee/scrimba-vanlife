@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export function Van(props) {
   return (
     <Link
-      to={`/vans/${props.van.id}`}
+      to={props.van.id}
       className={styles.van}
     >
       <img
