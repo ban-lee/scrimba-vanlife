@@ -1,27 +1,42 @@
 import styles from './rent-details.module.css';
 import { BackLink } from '/src/components/back-link';
-import { Chip } from '/src/components/chip';
-import { Link, useParams } from "react-router-dom"
-import { useEffect, useState } from 'react';
+import { Chip, VAN_TYPES } from '/src/components/chip';
+import { Link, useLocation, useParams } from "react-router-dom"
+import { useEffect, useRef, useState } from 'react';
 
 export function RentDetails() {
-  const params = useParams();
+  const location = useLocation();
+  const routeParams = useParams();
+  const backLink = useRef({label: 'Back to all vans', to: '..'});
   const [van, setVan] = useState(null);
 
   useEffect(() => {
-    fetch(`/api/vans/${params.id}`)
-    .then((res) => res.json())
-    .then((json) => {
-      setVan(json.vans);
-    });
-  }, [params.id]);
+    fetch(`/api/vans/${routeParams.id}`)
+      .then((res) => res.json())
+      .then((json) => {
+        setVan(json.vans);
+      });
+
+    const searchParams = new URLSearchParams(location.state?.search ?? {});
+    if (searchParams.has('type')) {
+      const type = searchParams.get('type');
+
+      backLink.current = {
+        label: `Back to ${VAN_TYPES[type].label.toLowerCase()} vans`,
+        to: `..?${searchParams.toString()}`
+      };
+    }
+  }, [routeParams.id]);
 
   return (
     <div className={styles.content}>
       {!van && <h1 style={{textAlign: 'center'}}>Loading...</h1>}
       {!!van && (
         <>
-          <BackLink label="Back to all vans" />
+          <BackLink
+            label={backLink.current.label}
+            to={backLink.current.to}
+          />
           <div className={styles.photo}>
             <img
               src={van.imageUrl}

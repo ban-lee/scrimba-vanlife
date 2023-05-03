@@ -1,12 +1,15 @@
 import styles from './van.module.css';
 import { Chip } from '/src/components/chip';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 export function Van(props) {
+  const [searchParams] = useSearchParams();
+
   return (
     <Link
       to={props.van.id}
       className={styles.van}
+      state={{ search: searchParams.toString() }}
     >
       <img
         src={props.van.imageUrl}
