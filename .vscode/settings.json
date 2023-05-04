@@ -13,4 +13,5 @@
 
     "**/dist/*": true,
   },
+  "javascript.preferences.importModuleSpecifier": "non-relative",
 }
