@@ -5,7 +5,11 @@ import stargazing from '/src/assets/stargazing.png';
 export function About() {
   return (
     <>
-      <img src={stargazing} />
+      <img
+        src={stargazing}
+        width={550}
+        height={234}
+      />
       <div className={styles.content}>
         <h2 className="h2">Don’t squeeze in a sedan when you could relax in a van.</h2>
         <p className="text">
