@@ -15,33 +15,31 @@ export function HostVanDetail() {
   return (
     <div className={styles.content}>
       <BackLink to="/host/vans" label="Back to all vans" />
-      {!!van && (
-        <div className={styles.card}>
-          <VanSummary van={van} />
-          <nav className={styles.links}>
-            <NavLink
-              to="."
-              end
-              className={({isActive}) => `link ${isActive ? 'active' : ''}`}
-            >
-              Details
-            </NavLink>
-            <NavLink
-              to="pricing"
-              className={({isActive}) => `link ${isActive ? 'active' : ''}`}
-            >
-              Pricing
-            </NavLink>
-            <NavLink
-              to="photos"
-              className={({isActive}) => `link ${isActive ? 'active' : ''}`}
-            >
-              Photos
-            </NavLink>
-          </nav>
-          <Outlet context={{ van }} />
-        </div>
-      )}
+      <div className={styles.card}>
+        <VanSummary van={van} />
+        <nav className={styles.links}>
+          <NavLink
+            to="."
+            end
+            className={({isActive}) => `link ${isActive ? 'active' : ''}`}
+          >
+            Details
+          </NavLink>
+          <NavLink
+            to="pricing"
+            className={({isActive}) => `link ${isActive ? 'active' : ''}`}
+          >
+            Pricing
+          </NavLink>
+          <NavLink
+            to="photos"
+            className={({isActive}) => `link ${isActive ? 'active' : ''}`}
+          >
+            Photos
+          </NavLink>
+        </nav>
+        <Outlet context={{ van }} />
+      </div>
     </div>
   );
 }
