@@ -1,24 +1,20 @@
 import styles from './van-detail.module.css';
 import { BackLink } from '/src/components/back-link';
-import { NavLink, Outlet, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { NavLink, Outlet, useLoaderData } from 'react-router-dom';
 import { VanSummary } from '/src/components/host/van-summary';
+import { getHostVan } from '/src/api/host';
+
+export async function loader({ params }) {
+  const van = await getHostVan(params.id);
+  return { van };
+}
 
 export function HostVanDetail() {
-  const params = useParams();
-  const [van, setVan] = useState(null);
-
-  useEffect(() => {
-    fetch(`/api/host/vans/${params.id}`)
-    .then((res) => res.json())
-    .then((json) => {
-      setVan(json.vans[0]);
-    });
-  }, [params.id]);
+  const { van } = useLoaderData();
 
   return (
     <div className={styles.content}>
-      <BackLink label="Back to all vans" />
+      <BackLink to="/host/vans" label="Back to all vans" />
       {!!van && (
         <div className={styles.card}>
           <VanSummary van={van} />

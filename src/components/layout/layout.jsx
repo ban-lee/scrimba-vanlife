@@ -7,11 +7,12 @@ import { useEffect } from 'react';
 
 import 'nprogress/nprogress.css';
 
+NProgress.configure({ showSpinner: false });
+
 export function Layout() {
   const navigation = useNavigation();
 
   useEffect(() => {
-    NProgress.configure({ showSpinner: false });
   }, []);
 
   useEffect(() => {

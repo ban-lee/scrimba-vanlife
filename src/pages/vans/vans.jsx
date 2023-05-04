@@ -1,21 +1,18 @@
 import styles from './vans.module.css';
-import { Van } from '/src/components/van';
 import { Chip, VAN_TYPES } from '/src/components/chip';
-import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { Van } from '/src/components/van';
+import { getAllVans } from '/src/api/vans';
+import { useLoaderData, useSearchParams } from 'react-router-dom';
+
+export async function loader() {
+  const vans = await getAllVans();
+  return { vans };
+}
 
 export function Vans() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [vans, setVans] = useState([]);
   const typeFilter = searchParams.get('type');
-
-  useEffect(() => {
-    fetch('/api/vans')
-      .then((res) => res.json())
-      .then((json) => {
-        setVans(json.vans);
-      });
-  }, []);
+  const { vans } = useLoaderData();
 
   function handleClick(type) {
     setSearchParams((searchParams) => {

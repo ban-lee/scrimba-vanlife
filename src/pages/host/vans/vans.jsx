@@ -1,17 +1,15 @@
 import styles from './vans.module.css';
-import { useEffect, useState } from 'react';
 import { VanSlat } from '/src/components/van-slat';
+import { getHostVans } from '/src/api/host';
+import { useLoaderData } from 'react-router-dom';
+
+export async function loader() {
+  const vans = await getHostVans();
+  return { vans };
+}
 
 export function HostVans() {
-  const [vans, setVans] = useState([]);
-
-  useEffect(() => {
-    fetch('/api/host/vans')
-      .then((res) => res.json())
-      .then((json) => {
-        setVans(json.vans);
-      });
-  }, []);
+  const { vans } = useLoaderData();
 
   return (
     <div className={styles.content}>
