@@ -1,8 +1,16 @@
 import styles from './login.module.css';
+import { useLoaderData } from 'react-router-dom';
 import { useState } from 'react';
 
-export function Login() {
+export function loader({ request }) {
+  const searchParams = new URL(request.url).searchParams;
+
+  return { redirectMsg: searchParams.has('redirect') ? 'You must sign in first.' : '' };
+}
+
+export function LogIn() {
   const [formData, setFormData] = useState({email: '', password: ''});
+  const { redirectMsg } = useLoaderData();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -22,6 +30,7 @@ export function Login() {
       <h2 className={`h2 ${styles.title}`}>
         Sign in to your account
       </h2>
+      {!!redirectMsg && <div className={styles.redirectMsg}>{redirectMsg}</div> }
       <form
         onSubmit={handleSubmit}
         className={styles.form}

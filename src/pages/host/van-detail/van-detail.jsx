@@ -3,8 +3,11 @@ import { BackLink } from '/src/components/back-link';
 import { NavLink, Outlet, useLoaderData } from 'react-router-dom';
 import { VanSummary } from '/src/components/host/van-summary';
 import { getHostVan } from '/src/api/host';
+import { requireAuth } from '/src/api/auth';
 
 export async function loader({ params }) {
+  await requireAuth();
+
   const van = await getHostVan(params.id);
   return { van };
 }

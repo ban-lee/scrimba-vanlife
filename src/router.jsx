@@ -8,7 +8,7 @@ import { HostReviews } from './pages/host/host-reviews';
 import { HostVans, loader as hostVansLoader } from './pages/host/vans';
 import { HostVanDetail, loader as hostVanLoader } from './pages/host/van-detail';
 import { Layout } from './components/layout';
-import { Login } from './pages/login';
+import { LogIn, loader as logInLoader } from './pages/login';
 import { NotFound } from './pages/not-found';
 import { RentDetails, loader as vanLoader } from './pages/vans/rent-details';
 import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
@@ -16,6 +16,11 @@ import { VanDescription } from './components/host/van-description';
 import { VanPhoto } from './components/host/van-photo';
 import { VanPricing } from './components/host/van-pricing';
 import { Vans, loader as vansLoader } from './pages/vans';
+import { requireAuth } from './api/auth';
+
+async function authenticationLoader() {
+  return await requireAuth();
+}
 
 export const ROUTER = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Layout />}>
@@ -24,7 +29,11 @@ export const ROUTER = createBrowserRouter(createRoutesFromElements(
     >
       <Route index element={<Home />} />
       <Route path="about" element={<About />} />
-      <Route path="login" element={<Login />} />
+      <Route
+        path="login"
+        element={<LogIn />}
+        loader={logInLoader}
+      />
 
       <Route
         path="vans"
@@ -37,24 +46,52 @@ export const ROUTER = createBrowserRouter(createRoutesFromElements(
         loader={vanLoader}
       />
 
-      <Route path="host" element={<HostLayout />}>
-        <Route index element={<HostDashboard />} />
-        <Route path="income" element={<HostIncome />} />
+      <Route
+        path="host"
+        element={<HostLayout />}
+        loader={authenticationLoader}
+      >
+        <Route
+          index
+          element={<HostDashboard />}
+          loader={authenticationLoader}
+        />
+        <Route
+          path="income"
+          element={<HostIncome />}
+          loader={authenticationLoader}
+        />
         <Route
           path="vans"
           element={<HostVans />}
           loader={hostVansLoader}
-        />
+      />
         <Route
           path="vans/:id"
           element={<HostVanDetail />}
           loader={hostVanLoader}
-        >
-          <Route index element={<VanDescription />} />
-          <Route path="pricing" element={<VanPricing />} />
-          <Route path="photos" element={<VanPhoto/>} />
+      >
+          <Route
+            index
+            element={<VanDescription />}
+            loader={authenticationLoader}
+          />
+          <Route
+            path="pricing"
+            element={<VanPricing />}
+            loader={authenticationLoader}
+          />
+          <Route
+            path="photos"
+            element={<VanPhoto/>}
+            loader={authenticationLoader}
+          />
         </Route>
-        <Route path="reviews" element={<HostReviews />} />
+        <Route
+          path="reviews"
+          element={<HostReviews />}
+          loader={authenticationLoader}
+        />
       </Route>
     </Route>
 
