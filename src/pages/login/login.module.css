@@ -7,14 +7,19 @@
   text-align: center;
 }
 
+.errorMsg,
 .redirectMsg {
   font-weight: 600;
   margin-top: 36px;
   text-align: center;
 }
 
+.errorMsg {
+  color: red;
+}
+
 .form {
-  margin-top: 48px;
+  margin-top: 36px;
 
   display: flex;
   flex-direction: column;
@@ -44,4 +49,10 @@
   margin-top: 32px;
   padding: 12px 22px;
   width: 100%;
+}
+
+.logInBtn:disabled {
+  background: var(--light-gray);
+  cursor: default;
+  pointer-events: none;
 }

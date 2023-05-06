@@ -1,6 +1,6 @@
 import styles from './login.module.css';
-import { useLoaderData } from 'react-router-dom';
-import { useState } from 'react';
+import { Form, redirect, useActionData, useLoaderData, useNavigation } from 'react-router-dom';
+import { logIn } from '/src/api/auth';
 
 export function loader({ request }) {
   const searchParams = new URL(request.url).searchParams;
@@ -8,51 +8,59 @@ export function loader({ request }) {
   return { redirectMsg: searchParams.has('redirect') ? 'You must sign in first.' : '' };
 }
 
+export async function action({ request }) {
+  const formData = await request.formData();
+
+  try {
+    await logIn({
+      email: formData.get('email'),
+      password: formData.get('password'),
+    });
+
+    return redirect('/host');
+  } catch (e) {
+    return e;
+  }
+}
+
 export function LogIn() {
-  const [formData, setFormData] = useState({email: '', password: ''});
+  const navigation = useNavigation();
+  const loading = navigation.state !== 'idle';
+
   const { redirectMsg } = useLoaderData();
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(formData);
-  }
-
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-        ...prev,
-        [name]: value,
-    }));
-  }
+  const error = useActionData();
 
   return (
     <div className={styles.content}>
       <h2 className={`h2 ${styles.title}`}>
         Sign in to your account
       </h2>
-      {!!redirectMsg && <div className={styles.redirectMsg}>{redirectMsg}</div> }
-      <form
-        onSubmit={handleSubmit}
+      {!!redirectMsg && <div className={styles.redirectMsg}>{redirectMsg}</div>}
+      {!!error?.message && <div className={styles.errorMsg}>{error.message}</div>}
+      <Form
+        method="post"
+        replace
         className={styles.form}
       >
         <input
           name="email"
-          onChange={handleChange}
           type="email"
           placeholder="Email address"
-          value={formData.email}
           className={styles.email}
         />
         <input
           name="password"
-          onChange={handleChange}
           type="password"
           placeholder="Password"
-          value={formData.password}
           className={styles.password}
         />
-        <button className={`button ${styles.logInBtn}`}>Sign in</button>
-      </form>
+        <button
+          className={`button ${styles.logInBtn}`}
+          disabled={loading}
+        >
+          {loading ? 'Signing in...' : 'Sign in'}
+        </button>
+      </Form>
     </div>
   );
 }

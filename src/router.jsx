@@ -8,7 +8,7 @@ import { HostReviews } from './pages/host/host-reviews';
 import { HostVans, loader as hostVansLoader } from './pages/host/vans';
 import { HostVanDetail, loader as hostVanLoader } from './pages/host/van-detail';
 import { Layout } from './components/layout';
-import { LogIn, loader as logInLoader } from './pages/login';
+import { LogIn, loader as logInLoader, action as logInAction } from './pages/login';
 import { NotFound } from './pages/not-found';
 import { RentDetails, loader as vanLoader } from './pages/vans/rent-details';
 import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
@@ -33,6 +33,7 @@ export const ROUTER = createBrowserRouter(createRoutesFromElements(
         path="login"
         element={<LogIn />}
         loader={logInLoader}
+        action={logInAction}
       />
 
       <Route

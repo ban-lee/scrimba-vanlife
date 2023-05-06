@@ -13,9 +13,6 @@ export function Layout() {
   const navigation = useNavigation();
 
   useEffect(() => {
-  }, []);
-
-  useEffect(() => {
     if (navigation.state === 'idle') NProgress.done();
     else NProgress.start();
 

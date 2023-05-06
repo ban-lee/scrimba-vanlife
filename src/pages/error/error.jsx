@@ -19,7 +19,7 @@ export function Error() {
         Sorry, an error has occured.
       </h2>
       <div className={styles.code}>
-        {format(error).map((l) => <code>{l}</code>)}
+        {format(error).map((l, index) => <code key={index}>{l}</code>)}
       </div>
       <Link to="/" className={`button ${styles.homeBtn}`}>
         Return to home
