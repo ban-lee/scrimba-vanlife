@@ -1,9 +1,12 @@
 import styles from './vans.module.css';
 import { VanSlat } from '/src/components/van-slat';
 import { getHostVans } from '/src/api/host';
+import { requireAuth } from '/src/api/auth';
 import { useLoaderData } from 'react-router-dom';
 
-export async function loader() {
+export async function loader({ request }) {
+  await requireAuth(request);
+
   const vans = await getHostVans();
   return { vans };
 }

@@ -1,5 +1,6 @@
-import { Link, NavLink } from 'react-router-dom';
 import styles from './header.module.css';
+import userIcon from '/src/assets/circle-user-solid.svg';
+import { Link, NavLink } from 'react-router-dom';
 
 export function Header() {
   return (
@@ -25,6 +26,12 @@ export function Header() {
             className={({isActive}) => `link link--large ${isActive ? 'active' : ''}`}
           >
             Vans
+          </NavLink>
+          <NavLink
+            to="login"
+            className={styles.logIn}
+          >
+            <img src={userIcon} />
           </NavLink>
         </div>
       </nav>
