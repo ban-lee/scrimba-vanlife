@@ -10,6 +10,11 @@ export function Error() {
       lines.push(`${key}: ${error[key]}`);
     }
 
+    if (lines.length === 0) {
+      console.error(error);
+      lines.push('Unknown error');
+    }
+
     return lines;
   }
 

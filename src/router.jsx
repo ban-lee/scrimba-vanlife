@@ -18,8 +18,8 @@ import { VanPricing } from './components/host/van-pricing';
 import { Vans, loader as vansLoader } from './pages/vans';
 import { requireAuth } from './api/auth';
 
-async function authenticationLoader() {
-  return await requireAuth();
+async function authenticationLoader({ request }) {
+  return requireAuth(request);
 }
 
 export const ROUTER = createBrowserRouter(createRoutesFromElements(
@@ -50,7 +50,6 @@ export const ROUTER = createBrowserRouter(createRoutesFromElements(
       <Route
         path="host"
         element={<HostLayout />}
-        loader={authenticationLoader}
       >
         <Route
           index
@@ -66,12 +65,12 @@ export const ROUTER = createBrowserRouter(createRoutesFromElements(
           path="vans"
           element={<HostVans />}
           loader={hostVansLoader}
-      />
+        />
         <Route
           path="vans/:id"
           element={<HostVanDetail />}
           loader={hostVanLoader}
-      >
+        >
           <Route
             index
             element={<VanDescription />}

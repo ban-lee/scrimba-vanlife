@@ -17,7 +17,8 @@ export async function action({ request }) {
       password: formData.get('password'),
     });
 
-    return redirect('/host');
+    const redirectTo = new URL(request.url).searchParams.get('redirectTo') ?? '/host';
+    return redirect(redirectTo);
   } catch (e) {
     return e;
   }

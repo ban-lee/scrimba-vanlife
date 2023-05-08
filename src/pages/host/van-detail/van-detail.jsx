@@ -5,8 +5,8 @@ import { VanSummary } from '/src/components/host/van-summary';
 import { getHostVan } from '/src/api/host';
 import { requireAuth } from '/src/api/auth';
 
-export async function loader({ params }) {
-  await requireAuth();
+export async function loader({ request, params }) {
+  await requireAuth(request);
 
   const van = await getHostVan(params.id);
   return { van };

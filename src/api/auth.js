@@ -3,14 +3,14 @@ import { redirect } from 'react-router-dom';
 
 const logInKey = 'loggedIn';
 
-export async function requireAuth() {
+export async function requireAuth(request) {
   // Fake a log in flow.
   const isLoggedIn = localStorage.getItem(logInKey);
-  if (!isLoggedIn) throw redirect('/login?redirect=true');
-
-  return null;
+  if (!isLoggedIn) {
+    const pathname = request?.url ? new URL(request.url).pathname : '';
+    throw redirect(`/login?redirect=true${pathname ? `&redirectTo=${pathname}` : ''}`);
+  }
 }
-
 
 export async function logIn(credentials) {
   const res = await fetch('/api/login', {
