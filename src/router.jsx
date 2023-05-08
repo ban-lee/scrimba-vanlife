@@ -11,7 +11,7 @@ import { Layout } from './components/layout';
 import { LogIn, loader as logInLoader, action as logInAction } from './pages/login';
 import { NotFound } from './pages/not-found';
 import { RentDetails, loader as vanLoader } from './pages/vans/rent-details';
-import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import { VanDescription } from './components/host/van-description';
 import { VanPhoto } from './components/host/van-photo';
 import { VanPricing } from './components/host/van-pricing';
@@ -19,10 +19,11 @@ import { Vans, loader as vansLoader } from './pages/vans';
 import { requireAuth } from './api/auth';
 
 async function authenticationLoader({ request }) {
-  return requireAuth(request);
+  await requireAuth(request);
+  return null;
 }
 
-export const ROUTER = createBrowserRouter(createRoutesFromElements(
+const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Layout />}>
     <Route
       errorElement={<Error />}
@@ -98,3 +99,7 @@ export const ROUTER = createBrowserRouter(createRoutesFromElements(
     <Route path="*" element={<NotFound />} />
   </Route>
 ));
+
+export function Router() {
+  return <RouterProvider router={router} />;
+}

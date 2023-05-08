@@ -1,11 +1,10 @@
-import ReactDOM from 'react-dom/client';
-import { ROUTER } from './router';
-import { RouterProvider } from 'react-router-dom';
-
 import './server';
 
+import ReactDOM from 'react-dom/client';
+import { Router } from './router';
+
 function App() {
-  return (<RouterProvider router={ROUTER} />)
+  return (<Router />);
 }
 
 ReactDOM
