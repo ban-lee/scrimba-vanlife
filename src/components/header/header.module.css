@@ -21,9 +21,12 @@
 .links {
   display: flex;
   gap: 24px;
+  place-items: center;
 }
 
-.logIn {
-  width: 20px;
-  height: 20px;
+.button {
+  background: var(--orange);
+  color: #fff;
+  font-weight: 600;
+  width: 92px;
 }

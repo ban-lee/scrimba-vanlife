@@ -2,13 +2,13 @@ import styles from './van-detail.module.css';
 import { BackLink } from '/src/components/back-link';
 import { NavLink, Outlet, useLoaderData } from 'react-router-dom';
 import { VanSummary } from '/src/components/host/van-summary';
-import { getHostVan } from '/src/api/host';
+import { getVan } from '/src/api/vans';
 import { requireAuth } from '/src/api/auth';
 
 export async function loader({ request, params }) {
   await requireAuth(request);
 
-  const van = await getHostVan(params.id);
+  const van = await getVan(params.id);
   return { van };
 }
 

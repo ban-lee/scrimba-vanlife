@@ -1,5 +1,6 @@
 import styles from './login.module.css';
 import { Form, redirect, useActionData, useLoaderData, useNavigation } from 'react-router-dom';
+import { getErrorMessage } from '/src/api/utils';
 import { logIn } from '/src/api/auth';
 
 export function loader({ request }) {
@@ -20,7 +21,7 @@ export async function action({ request }) {
     const redirectTo = new URL(request.url).searchParams.get('redirectTo') ?? '/host';
     return redirect(redirectTo);
   } catch (e) {
-    return e;
+    return { message: getErrorMessage(e.code) };
   }
 }
 
@@ -62,6 +63,11 @@ export function LogIn() {
           {loading ? 'Signing in...' : 'Sign in'}
         </button>
       </Form>
+      <div className={styles.demo}>
+        <strong>Demo User Credentials</strong>
+        <p>demo@vanlife.com</p>
+        <p>password123</p>
+      </div>
     </div>
   );
 }

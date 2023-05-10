@@ -1,26 +1,33 @@
-import { checkResponse } from './utils';
+import { getAuth } from './firebase';
+import { onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { redirect } from 'react-router-dom';
+import { useState } from 'react';
 
-const logInKey = 'loggedIn';
+export function useAuthState() {
+  const [isSignedIn, setIsSignedIn] = useState(false);
+
+  onAuthStateChanged(getAuth(), (user) => {
+    const newIsSignedIn = !!user;
+    if (isSignedIn === newIsSignedIn) return;
+
+    setIsSignedIn(newIsSignedIn);
+  });
+
+  return isSignedIn;
+}
 
 export async function requireAuth(request) {
-  // Fake a log in flow.
-  const isLoggedIn = localStorage.getItem(logInKey);
-  if (!isLoggedIn) {
+  const user = getAuth().currentUser;
+  if (!user) {
     const pathname = request?.url ? new URL(request.url).pathname : '';
     throw redirect(`/login?redirect=true${pathname ? `&redirectTo=${pathname}` : ''}`);
   }
 }
 
 export async function logIn(credentials) {
-  const res = await fetch('/api/login', {
-    method: 'post',
-    body: JSON.stringify(credentials),
-  });
-  const data = await res.json();
+  await signInWithEmailAndPassword(getAuth(), credentials.email, credentials.password);
+}
 
-  checkResponse(res, data.message);
-  localStorage.setItem(logInKey, true);
-
-  return data;
+export async function logOut() {
+  await signOut(getAuth());
 }

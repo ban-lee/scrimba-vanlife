@@ -1,8 +1,16 @@
 import styles from './header.module.css';
-import userIcon from '/src/assets/circle-user-solid.svg';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { logOut, useAuthState } from '/src/api/auth';
 
 export function Header() {
+  const isSignedIn = useAuthState();
+  const navigate = useNavigate();
+
+  async function handleLogOut() {
+    await logOut();
+    navigate('/');
+  }
+
   return (
     <header>
       <nav className={styles.nav}>
@@ -27,12 +35,21 @@ export function Header() {
           >
             Vans
           </NavLink>
-          <NavLink
-            to="login"
-            className={styles.logIn}
-          >
-            <img src={userIcon} />
-          </NavLink>
+          {!isSignedIn && (
+            <NavLink
+              to="login"
+            >
+              <button className={`button ${styles.button}`}>Sign In</button>
+            </NavLink>
+          )}
+          {isSignedIn && (
+            <button
+              className={`button ${styles.button}`}
+              onClick={handleLogOut}
+            >
+              Sign Out
+            </button>
+          )}
         </div>
       </nav>
     </header>
