@@ -1,0 +1,46 @@
+.welcome {
+  background: #FFEAD0;
+
+  margin-top: 36px;
+  padding-block: 36px;
+  padding-inline: var(--content-padding);
+}
+
+.review {
+  background: #FFDDB2;
+  padding-block: 48px;
+  padding-inline: var(--content-padding);
+
+  display: flex;
+  gap: 24px;
+  place-items: center;
+}
+
+.score {
+  margin-right: auto;
+
+  display: flex;
+  gap: 4px;
+}
+
+.scoreActual {
+  font-weight: 800;
+  padding-top: 1px;
+}
+
+.vans {
+  margin-top: 36px;
+  padding-inline: var(--content-padding);
+}
+
+.vansList {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.more {
+  margin-top: 8px;
+  text-align: center;
+}

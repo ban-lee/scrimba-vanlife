@@ -1,7 +1,25 @@
 import styles from './layout-host.module.css';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useLoaderData } from 'react-router-dom';
+import { getHostReviews, getHostVans } from '/src/api/host';
+import { requireAuth } from '/src/api/auth';
+
+export async function loader({ request }) {
+  await requireAuth(request);
+
+  const promiseData = await Promise.all([
+    getHostVans(),
+    getHostReviews(),
+  ]);
+
+  return {
+    vans: promiseData[0],
+    reviews: promiseData[1],
+  };
+}
 
 export function HostLayout() {
+  const data = useLoaderData();
+
   return (
     <>
       <nav className={styles.nav}>
@@ -31,6 +49,6 @@ export function HostLayout() {
           Reviews
         </NavLink>
       </nav>
-      <Outlet />
+      <Outlet context={data} />
     </>);
 }

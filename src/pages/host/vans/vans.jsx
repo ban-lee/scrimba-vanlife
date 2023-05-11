@@ -1,18 +1,9 @@
 import styles from './vans.module.css';
 import { VanSlat } from '/src/components/van-slat';
-import { getHostVans } from '/src/api/vans';
-import { requireAuth } from '/src/api/auth';
-import { useLoaderData } from 'react-router-dom';
-
-export async function loader({ request }) {
-  await requireAuth(request);
-
-  const vans = await getHostVans();
-  return { vans };
-}
+import { useOutletContext } from 'react-router-dom';
 
 export function HostVans() {
-  const { vans } = useLoaderData();
+  const { vans } = useOutletContext();
 
   return (
     <div className={styles.content}>

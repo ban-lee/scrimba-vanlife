@@ -1,23 +1,36 @@
 import { getAuth } from './firebase';
 import { onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { redirect } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function useAuthState() {
   const [isSignedIn, setIsSignedIn] = useState(false);
 
-  onAuthStateChanged(getAuth(), (user) => {
-    const newIsSignedIn = !!user;
-    if (isSignedIn === newIsSignedIn) return;
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(getAuth(), (user) => {
+      const newIsSignedIn = !!user;
+      setIsSignedIn(newIsSignedIn);
+    });
 
-    setIsSignedIn(newIsSignedIn);
-  });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   return isSignedIn;
 }
 
 export async function requireAuth(request) {
-  const user = getAuth().currentUser;
+  let unsubscribe;
+  const userPromise = new Promise((resolve) => {
+    unsubscribe = onAuthStateChanged(getAuth(), (user) => {
+      resolve(user);
+    });
+  });
+
+  const user = await userPromise;
+  unsubscribe();
+
   if (!user) {
     const pathname = request?.url ? new URL(request.url).pathname : '';
     throw redirect(`/login?redirect=true${pathname ? `&redirectTo=${pathname}` : ''}`);

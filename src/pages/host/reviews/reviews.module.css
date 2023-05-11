@@ -1,0 +1,21 @@
+.content {
+  margin: 36px var(--content-padding) 56px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.overall {
+  display: flex;
+  gap: 8px;
+  place-items: center;
+}
+
+.reviewList {
+  margin-top: 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
