@@ -5,3 +5,20 @@
   padding-block: 36px;
   padding-inline: var(--content-padding);
 }
+
+.vans {
+  margin-top: 36px;
+  padding-inline: var(--content-padding);
+}
+
+.vansList {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.more {
+  margin-top: 8px;
+  text-align: center;
+}

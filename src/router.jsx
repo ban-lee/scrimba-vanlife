@@ -3,9 +3,9 @@ import { Error } from './pages/error';
 import { Home } from './pages/home';
 import { HostDashboard } from './pages/host/host-dashboard';
 import { HostIncome } from './pages/host/host-income';
-import { HostLayout } from './components/layout-host';
+import { HostLayout, loader as hostVansLoader } from './components/layout-host';
 import { HostReviews } from './pages/host/host-reviews';
-import { HostVans, loader as hostVansLoader } from './pages/host/vans';
+import { HostVans } from './pages/host/vans';
 import { HostVanDetail, loader as hostVanLoader } from './pages/host/van-detail';
 import { Layout } from './components/layout';
 import { LogIn, loader as logInLoader, action as logInAction } from './pages/login';
@@ -51,6 +51,7 @@ const router = createBrowserRouter(createRoutesFromElements(
       <Route
         path="host"
         element={<HostLayout />}
+        loader={hostVansLoader}
       >
         <Route
           index
@@ -65,7 +66,6 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route
           path="vans"
           element={<HostVans />}
-          loader={hostVansLoader}
         />
         <Route
           path="vans/:id"
