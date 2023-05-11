@@ -1,17 +1,36 @@
-import { checkResponse } from './utils';
+import { collection, doc, getDoc, getDocs, orderBy, query, where } from 'firebase/firestore/lite';
+import { getAuth, getDb } from './firebase';
 
 export async function getAllVans() {
-  const res = await fetch('/api/vans');
-  checkResponse(res, 'Failed to fetch vans');
-
-  const json = await res.json();
-  return json.vans;
+  const q = query(collection(getDb(), 'vanlife-vans'), orderBy('name'));
+  const querySnapshot = await getDocs(q);
+  const vans = querySnapshot.docs.map((doc) => ({
+    ...doc.data(),
+    id: doc.id,
+  }));
+  return vans;
 }
 
 export async function getVan(id) {
-  const res = await fetch(`/api/vans/${id}`);
-  checkResponse(res, `Failed to fetch van [${id}]`);
+  const vanRef =  doc(getDb(), 'vanlife-vans', id);
+  const vanSnapshot = await getDoc(vanRef);
 
-  const json = await res.json();
-  return json.vans;
+  return {
+    ...vanSnapshot.data(),
+    id: vanSnapshot.id,
+  };
+}
+
+export async function getHostVans() {
+  const hostId = getAuth().currentUser.uid;
+  const q = query(
+    collection(getDb(), 'vanlife-vans'),
+    where('hostId', '==', hostId)
+  );
+  const querySnapshot = await getDocs(q);
+  const vans = querySnapshot.docs.map((doc) => ({
+    ...doc.data(),
+    id: doc.id,
+  }));
+  return vans;
 }

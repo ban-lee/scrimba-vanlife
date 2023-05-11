@@ -1,6 +1,6 @@
 import styles from './vans.module.css';
 import { VanSlat } from '/src/components/van-slat';
-import { getHostVans } from '/src/api/host';
+import { getHostVans } from '/src/api/vans';
 import { requireAuth } from '/src/api/auth';
 import { useLoaderData } from 'react-router-dom';
 
