@@ -20,17 +20,3 @@ export async function getVan(id) {
     id: vanSnapshot.id,
   };
 }
-
-export async function getHostVans() {
-  const hostId = getAuth().currentUser.uid;
-  const q = query(
-    collection(getDb(), 'vanlife-vans'),
-    where('hostId', '==', hostId)
-  );
-  const querySnapshot = await getDocs(q);
-  const vans = querySnapshot.docs.map((doc) => ({
-    ...doc.data(),
-    id: doc.id,
-  }));
-  return vans;
-}

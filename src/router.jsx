@@ -1,10 +1,10 @@
 import { About } from './pages/about';
 import { Error } from './pages/error';
 import { Home } from './pages/home';
-import { HostDashboard } from './pages/host/host-dashboard';
+import { HostDashboard } from './pages/host/dashboard';
 import { HostIncome } from './pages/host/host-income';
 import { HostLayout, loader as hostVansLoader } from './components/layout-host';
-import { HostReviews } from './pages/host/host-reviews';
+import { HostReviews } from './pages/host/reviews';
 import { HostVans } from './pages/host/vans';
 import { HostVanDetail, loader as hostVanLoader } from './pages/host/van-detail';
 import { Layout } from './components/layout';

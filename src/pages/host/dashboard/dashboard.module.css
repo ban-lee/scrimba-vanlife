@@ -6,6 +6,28 @@
   padding-inline: var(--content-padding);
 }
 
+.review {
+  background: #FFDDB2;
+  padding-block: 48px;
+  padding-inline: var(--content-padding);
+
+  display: flex;
+  gap: 24px;
+  place-items: center;
+}
+
+.score {
+  margin-right: auto;
+
+  display: flex;
+  gap: 4px;
+}
+
+.scoreActual {
+  font-weight: 800;
+  padding-top: 1px;
+}
+
 .vans {
   margin-top: 36px;
   padding-inline: var(--content-padding);
